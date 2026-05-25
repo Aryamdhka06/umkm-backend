@@ -232,6 +232,8 @@ def get_recommendations(user_id: int) -> dict:
         if produk_id not in produk_map:
             continue
         p = produk_map[produk_id]
+
+        BASE_IMG = "https://web-production-aa9b5.up.railway.app/static/uploads/"
         recommendations.append({
             "produk_id"        : produk_id,
             "nama"             : p["nama"],
