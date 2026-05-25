@@ -107,8 +107,9 @@ def _find_neighbors(matrix: pd.DataFrame, active_user: int, k: int) -> list[tupl
         if uid == active_user:
             continue
         sim = _pearson_similarity(matrix, active_user, uid)
-        if sim > 0:          # hanya tetangga yang positif
+        if sim != 0.0:  # buang hanya yang benar-benar 0 (tidak ada korelasi)
             similarities.append((uid, sim))
+
 
     # Urutkan descending berdasarkan similarity
     similarities.sort(key=lambda x: x[1], reverse=True)
